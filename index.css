@@ -1,50 +1,47 @@
-@media (max-width: 768px) {
-    .menu ul {
-        flex-direction: column; /* Empile les liens */
-        align-items: flex-start;
-    }
-}
-
+/* Réinitialisation de base */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Gère les dimensions sans débordement */
+    box-sizing: border-box;
 }
 
-
-/* Corps général */
+/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0; /* Pas de padding pour s'assurer d'une mise en page cohérente */
     background-color: aliceblue;
+    font-size: 16px;
 }
 
-/* Titre */
+/* Titre principal */
 h1 {
-    text-align: left;
+    text-align: center;
     font-size: 2.5em;
-    margin: 0;
+    margin: 20px 0;
     background-color: rgb(74, 221, 221);
     color: black;
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
 }
 
+/* Titre secondaire */
 h2 {
     text-align: center;
+    margin-top: 20px;
+    color: #333;
 }
 
+/* Texte */
 p {
     text-align: left;
     color: black;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    margin: 10px 0;
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
 }
 
-/* Conteneur principal : logo, menu et titre */
+/* Conteneur principal : logo, titre et menu */
 .logo-menu-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Répartit l'espace entre logo, titre, et menu */
+    justify-content: space-between;
     padding: 10px 20px;
     background-color: rgb(74, 221, 221);
     border-bottom: 2px solid #ddd;
@@ -59,16 +56,17 @@ p {
 
 /* Menu */
 .menu {
-    flex-grow: 1; /* Étend le menu sur tout l'espace disponible */
+    flex-grow: 1;
     display: flex;
-    justify-content:center; /* Aligne les éléments du menu à droite */
+    justify-content: center;
     align-items: center;
+    background-color: rgb(74, 221, 221);
 }
 
 .menu ul {
     list-style: none;
     display: flex;
-    gap: 20px; /* Espace entre les liens */
+    gap: 20px;
     margin: 0;
     padding: 0;
 }
@@ -87,26 +85,25 @@ p {
     border-radius: 5px;
 }
 
-/* Conteneur principal pour le texte et les photos */
+/* Conteneur principal : texte et carousel */
 .content-container {
-    display: flex; /* Active Flexbox pour aligner les enfants */
-    justify-content: space-between; /* Espace entre texte et carousel */
-    align-items: flex-start; /* Alignement des éléments en haut */
-    gap: 20px; /* Espace entre texte et photos */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
     padding: 20px;
 }
 
-/* Texte */
 .text-container {
-    flex: 1; /* Le texte prend l'espace disponible */
-    max-width: 50%; /* Contrôle la largeur maximale du texte */
+    flex: 1;
+    max-width: 50%;
 }
 
-/* Carousel */
 .carousel-container {
-    flex: 1; /* Le carousel prend également de l'espace */
-    max-width: 50%; /* Largeur maximale */
-    height: 500px; /* Hauteur fixe pour le carousel */
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
     position: relative;
     overflow: hidden;
 }
@@ -119,7 +116,7 @@ p {
 .carousel img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garde les proportions et remplit la zone */
+    object-fit: cover;
 }
 
 /* Boutons de navigation */
@@ -144,20 +141,14 @@ button.next {
     right: 10px;
 }
 
-footer {
-    margin-top: 0; /* Supprime l'espace au-dessus du footer */
-    padding: 20px; /* Ajustez si nécessaire */
-}
-
-/* Style général pour le tableau */
+/* Tableau */
 table {
-    width: 60%; /* Largeur du tableau */
-    margin: 20px auto; /* Centre le tableau */
-    border-collapse: collapse; /* Fusionne les bordures */
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
     font-family: Arial, sans-serif;
 }
 
-/* Style des en-têtes */
 th {
     background-color: rgb(74, 221, 221);
     color: #fff;
@@ -165,22 +156,85 @@ th {
     text-align: center;
 }
 
-/* Style des cellules */
 td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #ccc; /* Ajoute une bordure */
+    border: 1px solid #ccc;
 }
 
-/* Alternance des couleurs pour les lignes */
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* Titre */
-h1 {
+/* Footer */
+footer {
+    margin-top: 0;
+    padding: 20px;
     text-align: center;
-    margin-top: 20px;
-    color: #333;
 }
 
+/* Responsive Design */
+
+/* Moyens écrans */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .carousel-container {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        text-align: center;
+    }
+}
+
+/* Petits écrans */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .carousel img {
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    button.prev,
+    button.next {
+        top: 40%; /* Positionne les flèches plus haut */
+    }
+
+    button.prev {
+        left: 5px; /* Ajuste légèrement le placement horizontal si nécessaire */
+    }
+
+    button.next {
+        right: 5px; /* Ajuste légèrement le placement horizontal si nécessaire */
+    }
+}
