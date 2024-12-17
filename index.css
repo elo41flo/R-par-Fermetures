@@ -176,3 +176,10 @@ h1 {
     margin-top: 20px;
     color: #333;
 }
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        text-align: center;
+    }
