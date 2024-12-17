@@ -5,70 +5,60 @@
     box-sizing: border-box;
 }
 
-/* Styles généraux */
+/* Corps général */
 body {
     font-family: Arial, sans-serif;
     background-color: aliceblue;
     font-size: 16px;
+    margin: 0;
+    line-height: 1.6;
 }
 
 /* Titre principal */
 h1 {
     text-align: center;
     font-size: 2.5em;
-    margin: 20px 0;
     background-color: rgb(74, 221, 221);
     color: black;
+    padding: 10px;
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
 }
 
-/* Titre secondaire */
-h2 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-}
-
-/* Texte */
-p {
-    text-align: left;
-    color: black;
-    margin: 10px 0;
-    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
-}
-
-/* Conteneur principal : logo, titre et menu */
+/* Conteneur principal : logo et menu */
 .logo-menu-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
     background-color: rgb(74, 221, 221);
-    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 /* Logo */
 .logo {
-    width: 300px;
+    width: 200px;
     height: auto;
-    margin-right: 10px;
 }
 
 /* Menu */
 .menu {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(74, 221, 221);
+    justify-content: flex-end;
 }
 
 .menu ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    flex-wrap: wrap; /* Permet aux liens de passer sur plusieurs lignes si nécessaire */
     margin: 0;
-    padding: 0;
+}
+
+.menu ul li {
+    display: inline;
 }
 
 .menu ul li a {
@@ -76,22 +66,24 @@ p {
     color: #333;
     font-weight: bold;
     padding: 5px 10px;
-    transition: color 0.3s, background-color 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu ul li a:hover {
-    color: #fff;
     background-color: #007bff;
+    color: white;
     border-radius: 5px;
 }
 
 /* Conteneur principal : texte et carousel */
 .content-container {
     display: flex;
+    flex-direction: row; /* Texte à gauche, photos à droite */
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
     padding: 20px;
+    flex-wrap: wrap; /* Permet au contenu de s'adapter sur téléphone */
 }
 
 .text-container {
@@ -101,13 +93,13 @@ p {
 
 .carousel-container {
     flex: 1;
-    width: 100%;
-    max-width: 600px;
-    height: 500px;
+    max-width: 50%;
+    height: auto;
     position: relative;
     overflow: hidden;
 }
 
+/* Carousel */
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -115,11 +107,10 @@ p {
 
 .carousel img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
-/* Boutons de navigation */
+/* Flèches du carousel */
 button.prev,
 button.next {
     position: absolute;
@@ -146,20 +137,17 @@ table {
     width: 60%;
     margin: 20px auto;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
 }
 
 th {
     background-color: rgb(74, 221, 221);
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
+    color: white;
 }
 
 tr:nth-child(even) {
@@ -168,9 +156,9 @@ tr:nth-child(even) {
 
 /* Footer */
 footer {
-    margin-top: 0;
-    padding: 20px;
     text-align: center;
+    padding: 10px;
+    color: rgb(0, 0, 0);
 }
 
 /* Responsive Design */
@@ -181,18 +169,33 @@ footer {
         font-size: 14px;
     }
 
-    .menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .carousel-container {
-        width: 100%;
-    }
-
     h1 {
-        font-size: 1.8em;
-        text-align: center;
+        font-size: 2em;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .menu ul {
+        gap: 10px;
+    }
+
+    .menu ul li a {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+
+    .content-container {
+        flex-direction: column; /* Texte et photos empilés sur petits écrans */
+    }
+
+    .text-container, .carousel-container {
+        max-width: 100%; /* Les deux prennent toute la largeur */
+    }
+
+    .carousel img {
+        height: auto;
     }
 }
 
@@ -203,38 +206,30 @@ footer {
     }
 
     h1 {
-        font-size: 1.5em;
-    }
-
-    p {
-        font-size: 0.9em;
-    }
-
-    .logo {
-        width: 150px;
+        font-size: 1.8em;
     }
 
     .menu ul {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: column; /* Menu affiché en colonne */
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .menu ul li a {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .logo {
+        width: 120px;
     }
 
     .carousel img {
         height: auto;
     }
-}
 
-@media (max-width: 480px) {
     button.prev,
     button.next {
-        top: 40%; /* Positionne les flèches plus haut */
-    }
-
-    button.prev {
-        left: 5px; /* Ajuste légèrement le placement horizontal si nécessaire */
-    }
-
-    button.next {
-        right: 5px; /* Ajuste légèrement le placement horizontal si nécessaire */
+        top: 40%; /* Flèches légèrement remontées */
     }
 }
