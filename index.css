@@ -1,3 +1,10 @@
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column; /* Empile les liens */
+        align-items: flex-start;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -177,9 +184,3 @@ h1 {
     color: #333;
 }
 
-/* Ajustements pour les petits écrans */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8em;
-        text-align: center;
-    }
