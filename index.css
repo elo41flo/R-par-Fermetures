@@ -24,41 +24,25 @@ h1 {
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
 }
 
-/* Conteneur principal : logo et menu */
-.logo-menu-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: rgb(74, 221, 221);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
 /* Logo */
 .logo {
     width: 200px;
     height: auto;
 }
 
-/* Menu */
+/* Positionnement du menu */
 .menu {
-    flex-grow: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Centrer le menu */
+    margin: 10px 0; /* Ajouter un espacement par rapport au titre */
 }
 
 .menu ul {
     list-style: none;
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap; /* Permet aux liens de passer sur plusieurs lignes si nécessaire */
+    gap: 15px; /* Espacement entre les éléments */
     margin: 0;
-}
-
-.menu ul li {
-    display: inline;
+    padding: 0;
 }
 
 .menu ul li a {
@@ -74,6 +58,7 @@ h1 {
     color: white;
     border-radius: 5px;
 }
+
 
 /* Conteneur principal : texte et carousel */
 .content-container {
